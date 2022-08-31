@@ -112,6 +112,10 @@ form {
   margin-block-start: 0.5em;
 }
 
+ul {
+  list-style-type: none;
+}
+
 
 @keyframes App-logo-spin {
   from {

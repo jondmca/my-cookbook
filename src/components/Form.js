@@ -34,15 +34,21 @@ function Form(){
         } else {
             setErrors(["Ingredient name is required!"]);
         }
-        console.log(submittedData)
     }
 
-    const listOfIngredients = submittedData.map((data, index) => {
+    function handleDelete(event){
+        const filteredArray = submittedData.filter(function(data){
+            return data.ingredient !== event.target.className
+        })
+        setSubmittedData(filteredArray);
+    }
+
+    const listOfIngredients = submittedData.map((data) => {
         return(
-            <div key={index}>
+            <li key={data.ingredient} className={data.ingredient}>
                 {data.ingredient} x {data.quantity} {data.measurement}
-                &nbsp;<button>x</button>
-            </div>
+                &nbsp;<button onClick={handleDelete} className={data.ingredient}>x</button>
+            </li>
         )
     })
 
@@ -55,7 +61,9 @@ function Form(){
                 </p>
             ))
             : null}
+            <ul>
             {listOfIngredients}
+            </ul>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="ingredient" placeholder="Ingredient Name" onChange={handleIngredient} value={ingredientName}></input> x 
                 &nbsp;<input type="number" name="quantity" placeholder="Quantity" onChange={handleQuantity} value={ingredientQuantity}></input> 
