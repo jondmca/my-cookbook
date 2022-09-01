@@ -1,34 +1,35 @@
 import React, { useState } from "react";
 
 function Form(){
-
-    const [ingredientName, setIngredientName] = useState("");
-    const [ingredientQuantity, setQuantity] = useState("")
-    const [measurement, setMeasurement] = useState("");
+    const [formData, setFormData] = useState({
+        ingredient: "",
+        quantity: "",
+        measurement: "",
+    });
     const [submittedData, setSubmittedData] = useState([]);
     const [errors, setErrors] = useState([]);
 
-    function handleIngredient(event){
-        setIngredientName(event.target.value);
-    };
+    function handleChange(event){
+        const name = event.target.name;
+        const value = event.target.value;
 
-    function handleQuantity(event){
-        setQuantity(event.target.value);
-    };
-
-    function handleMeasurement(event){
-        setMeasurement(event.target.value);
-    };
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    }
 
     function handleSubmit(event){
         event.preventDefault();
-        if (ingredientName.length > 0){
-            const formData = {ingredient: ingredientName, quantity: ingredientQuantity, measurement: measurement};
+        if (formData.ingredient.length > 0){
             const dataArray = [...submittedData, formData];
             setSubmittedData(dataArray);
-            setIngredientName("");
-            setQuantity("");
-            setMeasurement("");
+            setFormData({
+                ingredient: "",
+                quantity: "",
+                measurement: "",
+
+            });
             setErrors([]);
             console.log(formData)
         } else {
@@ -65,9 +66,9 @@ function Form(){
             {listOfIngredients}
             </ul>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="ingredient" placeholder="Ingredient Name" onChange={handleIngredient} value={ingredientName}></input> x 
-                &nbsp;<input type="number" name="quantity" placeholder="Quantity" onChange={handleQuantity} value={ingredientQuantity}></input> 
-                &nbsp;<select name="measurement" onChange={handleMeasurement} value={measurement}>
+                <input type="text" name="ingredient" placeholder="Ingredient Name" onChange={handleChange} value={formData.ingredient}></input> x 
+                &nbsp;<input type="number" name="quantity" placeholder="Quantity" onChange={handleChange} value={formData.quantity}></input> 
+                &nbsp;<select name="measurement" onChange={handleChange} value={formData.measurement}>
                     <option>--</option>
                     <option>cup(s)</option>
                     <option>g</option>
