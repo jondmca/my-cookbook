@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { v4 as uuid } from 'uuid';
 
 function Form(){
     const [formData, setFormData] = useState({
+        id: uuid(),
         ingredient: "",
         quantity: "",
         measurement: "",
@@ -25,6 +27,7 @@ function Form(){
             const dataArray = [...submittedData, formData];
             setSubmittedData(dataArray);
             setFormData({
+                id: uuid(),
                 ingredient: "",
                 quantity: "",
                 measurement: "",
@@ -39,16 +42,18 @@ function Form(){
 
     function handleDelete(event){
         const filteredArray = submittedData.filter(function(data){
-            return data.ingredient !== event.target.className
+            return data.id !== event.target.className
         })
         setSubmittedData(filteredArray);
+        console.log(filteredArray)
+        console.log(event.target)
     }
 
     const listOfIngredients = submittedData.map((data) => {
         return(
-            <li key={data.ingredient} className={data.ingredient}>
+            <li key={data.id} className={data.id}>
                 {data.ingredient} x {data.quantity} {data.measurement}
-                &nbsp;<button onClick={handleDelete} className={data.ingredient}>x</button>
+                &nbsp;<button onClick={handleDelete} className={data.id}>x</button>
             </li>
         )
     })
