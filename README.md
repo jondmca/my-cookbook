@@ -4,8 +4,6 @@ This is a very basic cookbook app where you can add your own recipes and create 
 
 ## Features
 
-## Usage
-
 ## Roadmap
 
 ## Photo Credit
