@@ -33,12 +33,13 @@
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
   flex-direction: row;  
-  word-spacing: 40px;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
   
 }
 
 a {
-  color: darkgreen;
+  color: white;
+  
 }
 
 a:hover, a:active {
