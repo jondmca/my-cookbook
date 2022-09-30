@@ -25,6 +25,26 @@
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+ .nav {
+  background-color: #d1c497;
+  min-height: 5vh;
+  display: flex;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 255, 255);
+  flex-direction: row;  
+  word-spacing: 40px;
+  
+}
+
+a {
+  color: darkgreen;
+}
+
+a:hover, a:active {
+  color: greenyellow;
+}
+
 .App-body {
   background-color:#ebeab4;
   min-height: 100vh;
@@ -92,10 +112,6 @@ button:active {
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 select {
