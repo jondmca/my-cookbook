@@ -13,7 +13,7 @@ function Home(){
     return(
       <div className="App">
         <header className="App-header">
-            <h2>🌿My Little Cookbook App🌿</h2>
+            <h2>🌿 My Little Cookbook App 🌿</h2>
         </header>
 
         <div className="App-body">
