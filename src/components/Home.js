@@ -23,9 +23,12 @@ function Home(){
             <RecipeInfo image={imageId}/>
           </div>
         </div>
-        <p>Hopefully this is where the cards will appear!</p>
+        <div>
+          <p>Hopefully this is where the cards will appear!</p>
+        </div>
       </div>
     )
 }
+
 
 export default Home;
