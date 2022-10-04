@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import ImageSelect from "./ImageSelect";
+import RecipeCards from "./RecipeCards";
 import RecipeInfo from "./RecipeInfo";
 
 function Home(){
-    const [imageId, setImageId] = useState(0)
+    const [imageId, setImageId] = useState(0);
 
     const handleImageSelect = e => {
       setImageId(e.target.value)
       console.log(e.target.value)
     }
-  
+
     return(
       <div className="App">
         <header className="App-header">
@@ -23,8 +24,8 @@ function Home(){
             <RecipeInfo image={imageId}/>
           </div>
         </div>
-        <div>
-          <p>Hopefully this is where the cards will appear!</p>
+        <div className="App-body">
+          <RecipeCards />
         </div>
       </div>
     )
