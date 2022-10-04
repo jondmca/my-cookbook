@@ -103,6 +103,25 @@ a:hover, a:active {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2)
 }
 
+.recipeCards {
+  background-color: #d1c497;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: auto;
+  margin-bottom: 25px;
+  inline-size: 500px;
+  padding: 16px 2px;  
+}
+
+.recipeImage {
+  border: 4px solid #555;
+  
+}
+
+.recipeName {
+  font-size: x-large;
+  font-weight: bold;
+}
+
 img {
   width:  200px;
   height: 200px;
