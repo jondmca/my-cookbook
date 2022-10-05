@@ -23,7 +23,7 @@ function RecipeInfo ({image}){
     };
     
     function handleSubmit(event){
-        event.preventDefault();
+        //event.preventDefault();
         if((recipeName.length && image && submittedData.length) === 0) {
             if(recipeName.length === 0) {
                 setRecipeError(["Missing Recipe Name!"])
@@ -37,6 +37,27 @@ function RecipeInfo ({image}){
             }
         }
         else { 
+            const recipeData = {
+                id: uuid(),
+                title: [
+                    { id: 1, image: image, recipeName: recipeName}
+                ],
+                ingredients: submittedData,
+                comments: [
+                    { id: 1, body: commentArea}
+                ]
+            }
+            fetch("http://localhost:3001/cards",{
+                method: "POST",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(recipeData)
+            })
+            .then ((r) => r.json())
+            .then(() => window.location.reload())
+            
+            console.log(recipeData)
             console.log(image)
             console.log(recipeName);
             console.log(submittedData)
@@ -47,12 +68,11 @@ function RecipeInfo ({image}){
             setRecipeError([]);
             setErrors([]);
         }
-
+        
     };
-
-
+    
     function handleChange(event){
-        const name = event.target.name;
+    const name = event.target.name;
         const value = event.target.value;
 
         setFormData({
@@ -72,7 +92,6 @@ function RecipeInfo ({image}){
             }
         }
 
-
         else{
             const dataArray = [...submittedData, formData];
             setSubmittedData(dataArray);
@@ -88,7 +107,6 @@ function RecipeInfo ({image}){
             console.log(submittedData)
         }
     }
-
 
     function handleDelete(event){
         const filteredArray = submittedData.filter(function(data){
