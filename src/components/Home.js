@@ -25,6 +25,7 @@ function Home(){
           </div>
         </div>
         <div className="App-body">
+          <h1>Your Recipes</h1>
           <RecipeCards />
         </div>
       </div>
