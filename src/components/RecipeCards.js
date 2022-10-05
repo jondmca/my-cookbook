@@ -13,6 +13,15 @@ function RecipeCards(){
           setCards(data);
         });
       }, []);
+
+      function handleDelete(event){
+        fetch(`http://localhost:3001/cards/${event.target.id}`, {
+            method: "DELETE",
+      })
+      .then((r) => r.json())
+      .then(() => console.log(`deleted ${event.target.id}!`))
+      window.location.reload(false)
+      }
     
       return(
         <div>
@@ -30,7 +39,7 @@ function RecipeCards(){
                 <p>
                     {card.comments[0].body}
                 </p>
-                <button>Remove recipe</button>
+                <button id={card.id} onClick={handleDelete}>Remove recipe</button>
             </div>
             
             )): null}
