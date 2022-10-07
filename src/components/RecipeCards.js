@@ -19,9 +19,8 @@ function RecipeCards(){
             method: "DELETE",
       })
       .then((r) => r.json())
-      .then(() => console.log(`deleted ${event.target.id}!`))
-      window.location.reload(false)
-      }
+      .then(() => window.location.reload(false))
+      };
     
       return(
         <div>
@@ -44,8 +43,7 @@ function RecipeCards(){
             
             )): null}
         </div>
-
-      )
-}
+      );
+};
 
 export default RecipeCards;

@@ -23,7 +23,7 @@ function Links(){
             </div>
         </div>
     )
-}
+};
                     
 
 export default Links;

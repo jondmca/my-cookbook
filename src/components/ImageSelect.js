@@ -19,7 +19,7 @@ function imageSelect({onImageSelect, image}){
                 </select>
             </div>
         </div>
-    )
+    );
 };
 
 export default imageSelect;

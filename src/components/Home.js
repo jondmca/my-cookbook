@@ -8,8 +8,7 @@ function Home(){
 
     const handleImageSelect = e => {
       setImageId(e.target.value)
-      console.log(e.target.value)
-    }
+    };
 
     return(
       <div className="App">
@@ -30,7 +29,7 @@ function Home(){
         </div>
       </div>
     )
-}
+};
 
 
 export default Home;

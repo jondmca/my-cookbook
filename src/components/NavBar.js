@@ -7,7 +7,6 @@ function NavBar() {
       <NavLink
         to="/"
         exact
-        //className="nav"
       >
         Home
       </NavLink>
@@ -22,8 +21,6 @@ function NavBar() {
       <NavLink
         to="/links"
         exact
-        //className="nav"
-
       >
         Links
       </NavLink>

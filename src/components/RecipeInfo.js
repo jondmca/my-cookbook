@@ -22,8 +22,7 @@ function RecipeInfo ({image}){
         setCommentArea(event.target.value);
     };
     
-    function handleSubmit(event){
-        //event.preventDefault();
+    function handleSubmit(){
         if((recipeName.length && image && submittedData.length) === 0) {
             if(recipeName.length === 0) {
                 setRecipeError(["Missing Recipe Name!"])
@@ -46,7 +45,7 @@ function RecipeInfo ({image}){
                 comments: [
                     { id: 1, body: commentArea}
                 ]
-            }
+            };
             fetch("http://localhost:3001/cards",{
                 method: "POST",
                 headers:{
@@ -56,18 +55,13 @@ function RecipeInfo ({image}){
             })
             .then ((r) => r.json())
             .then(() => window.location.reload())
-            
-            console.log(recipeData)
-            console.log(image)
-            console.log(recipeName);
-            console.log(submittedData)
-            console.log(commentArea);
+    
             setRecipeName("");
             setCommentArea("");
             setSubmittedData([])
             setRecipeError([]);
             setErrors([]);
-        }
+        };
         
     };
     
@@ -79,7 +73,7 @@ function RecipeInfo ({image}){
             ...formData,
             [name]: value,
         });
-    }
+    };
 
     function handleClick(event){
         event.preventDefault();
@@ -103,19 +97,15 @@ function RecipeInfo ({image}){
 
             });
             setErrors([]);
-            console.log(formData)
-            console.log(submittedData)
         }
-    }
+    };
 
     function handleDelete(event){
         const filteredArray = submittedData.filter(function(data){
             return data.id !== event.target.className
         })
         setSubmittedData(filteredArray);
-        console.log(filteredArray)
-        console.log(event.target)
-    }
+    };
 
     const listOfIngredients = submittedData.map((data) => {
         return(
@@ -124,13 +114,7 @@ function RecipeInfo ({image}){
                 &nbsp;<button onClick={handleDelete} className={data.id}>x</button>
             </li>
         )
-    })
-        
-
-
-
-
-
+    });
 
    return (
     <div className="recipe">
