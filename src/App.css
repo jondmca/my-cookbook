@@ -56,7 +56,7 @@ a:hover, a:active {
 
 .Link-body{
   background-color:#ebeab4;
-  min-height: 65vh;
+  min-height: 70vh;
 }
 
 .about {
@@ -65,7 +65,7 @@ a:hover, a:active {
 
 .About-body{
   background-color:#ebeab4;
-  min-height: 65vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   flex-direction: column;
