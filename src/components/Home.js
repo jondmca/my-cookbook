@@ -17,12 +17,17 @@ function Home(){
       }, []);
 
     const handleImageSelect = e => {
-      setImageId(e.target.value)
+      setImageId(e.target.value);
     };
 
     function handleAddCard(newCard) {
-      setCards([...cards, newCard])
+      setCards([...cards, newCard]);
     };
+
+    function handleDeleteCard(deletedCard){
+      const updatedCards = cards.filter((card)=> card.id !== deletedCard)
+      setCards(updatedCards)
+    }
 
     return(
       <div className="App">
@@ -39,7 +44,7 @@ function Home(){
         </div>
         <div className="App-body">
           <h1>Your Recipes</h1>
-          <RecipeCards cards={cards}/>
+          <RecipeCards cards={cards} onDeletecard={handleDeleteCard} />
         </div>
       </div>
     )
