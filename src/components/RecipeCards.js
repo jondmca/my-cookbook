@@ -2,14 +2,14 @@ import React from "react";
 import imageData from "../data/images";
 import { v4 as uuid } from 'uuid';
 
-function RecipeCards({cards}){
+function RecipeCards({cards, onDeletecard}){
 
       function handleDelete(event){
         fetch(`http://localhost:3001/cards/${event.target.id}`, {
             method: "DELETE",
       })
       .then((r) => r.json())
-      .then(() => window.location.reload(false))
+      .then(() => onDeletecard(event.target.id))
       };
     
       return(
