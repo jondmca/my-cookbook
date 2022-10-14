@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import imageData from "../data/images";
 import { v4 as uuid } from 'uuid';
 
-function RecipeCards(){
-    const [cards, setCards] = useState([]);
-
-
-    useEffect(() => {
-        fetch("http://localhost:3001/cards")
-        .then((response) => response.json())
-        .then((data) => {
-          setCards(data);
-        });
-      }, []);
+function RecipeCards({cards}){
 
       function handleDelete(event){
         fetch(`http://localhost:3001/cards/${event.target.id}`, {
