@@ -55,12 +55,7 @@ function RecipeInfo ({image, onAddCard}){
                 body: JSON.stringify(recipeData)
             })
             .then ((r) => r.json())
-            .then((newCard) => onAddCard(newCard)
-                
-                //window.location.reload()
-                )
-
-            console.log(recipeData)
+            .then((newCard) => onAddCard(newCard))
             
             setRecipeName("");
             setCommentArea("");
@@ -68,7 +63,6 @@ function RecipeInfo ({image, onAddCard}){
             setRecipeError([]);
             setErrors([]);
         };
-        
     };
     
     function handleChange(event){
