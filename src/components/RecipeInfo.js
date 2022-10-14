@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuid } from 'uuid';
 
-function RecipeInfo ({image}){
+function RecipeInfo ({image, onAddCard}){
     const[recipeName, setRecipeName] = useState("");
     const[commentArea, setCommentArea] = useState("");
     const [formData, setFormData] = useState({
@@ -46,6 +46,7 @@ function RecipeInfo ({image}){
                     { id: 1, body: commentArea}
                 ]
             };
+
             fetch("http://localhost:3001/cards",{
                 method: "POST",
                 headers:{
@@ -54,8 +55,13 @@ function RecipeInfo ({image}){
                 body: JSON.stringify(recipeData)
             })
             .then ((r) => r.json())
-            .then(() => window.location.reload())
-    
+            .then((newCard) => onAddCard(newCard)
+                
+                //window.location.reload()
+                )
+
+            console.log(recipeData)
+            
             setRecipeName("");
             setCommentArea("");
             setSubmittedData([])
